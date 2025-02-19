@@ -1,7 +1,8 @@
 // Importa as dependências
 const express = require('express');
 const nodemailer = require('nodemailer');
-const bodyParser = require('body-parser');
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 const cors = require('cors');  // Importa o CORS
 
 // Inicializa o Express
