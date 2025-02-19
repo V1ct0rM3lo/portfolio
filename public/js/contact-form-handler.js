@@ -1,52 +1,26 @@
-const express = require('express');
-const nodemailer = require('nodemailer');
-const bodyParser = require('body-parser');
-const cors = require('cors'); // Para permitir requisições de outros domínios
-require('dotenv').config(); // Carregar variáveis de ambiente
+document.getElementById("contact-form").addEventListener("submit", async function (event) {
+    event.preventDefault(); // Evita recarregar a página
 
-const app = express();
-const port = process.env.PORT || 3000;
+    const name = document.getElementById("name").value;
+    const email = document.getElementById("email").value;
+    const phone = document.getElementById("phone").value;
+    const message = document.getElementById("message").value;
 
-// Middleware
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
-app.use(cors());
+    const response = await fetch("https://portfolio-uwz6.onrender.com/send-email", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ name, email, phone, message })
+    });
 
-// Configuração do transportador do Nodemailer
-const transporter = nodemailer.createTransport({
-    service: 'gmail',
-    auth: {
-        user: process.env.EMAIL_USER,  // Puxando do Render
-        pass: process.env.EMAIL_PASS   // Puxando do Render
+    const status = document.getElementById("status");
+
+    if (response.ok) {
+        status.textContent = "Mensagem enviada com sucesso!";
+        status.style.color = "green";
+    } else {
+        status.textContent = "Erro ao enviar mensagem. Tente novamente.";
+        status.style.color = "red";
     }
-});
-
-// Rota para envio de e-mail
-app.post('/send-email', async (req, res) => {
-    try {
-        const { name, email, phone, message } = req.body;
-
-        const mailOptions = {
-            from: email,  
-            to: process.env.EMAIL_USER,  
-            subject: `Mensagem de ${name} pelo formulário`,
-            text: `Nome: ${name}\nE-mail: ${email}\nTelefone: ${phone}\nMensagem: ${message}`,
-            html: `
-                <p><strong>Nome:</strong> ${name}</p>
-                <p><strong>E-mail:</strong> ${email}</p>
-                <p><strong>Telefone:</strong> ${phone}</p>
-                <p><strong>Mensagem:</strong><br>${message}</p>
-            `
-        };
-
-        const info = await transporter.sendMail(mailOptions);
-        res.status(200).send('E-mail enviado: ' + info.response);
-    } catch (error) {
-        res.status(500).send('Erro ao enviar e-mail: ' + error.message);
-    }
-});
-
-// Iniciar o servidor
-app.listen(port, () => {
-    console.log(`Servidor rodando na porta ${port}`);
 });
