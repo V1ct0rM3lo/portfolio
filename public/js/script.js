@@ -11,7 +11,7 @@ document.getElementById("contact-form").addEventListener("submit", async functio
 
     try {
         // Enviando os dados para o servidor usando Fetch
-        const response = await fetch("https://portfolio-zho7.onrender.com", {  // Troque pela URL correta do seu servidor no Render
+        const response = await fetch("https://portfolio-uwz6.onrender.com", {  // Troque pela URL correta do seu servidor no Render
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
