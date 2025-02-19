@@ -11,7 +11,7 @@ document.getElementById("contact-form").addEventListener("submit", async functio
 
     try {
         // Enviando os dados para o servidor usando Fetch
-        const response = await fetch("https://portfolio-uwz6.onrender.com", {  // Troque pela URL correta do seu servidor no Render
+        const response = await fetch("https://portfolio-uwz6.onrender.com/enviar-mensagem", { 
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -19,17 +19,14 @@ document.getElementById("contact-form").addEventListener("submit", async functio
             body: JSON.stringify(data)
         });
 
-        // Verifica se a resposta é JSON ou texto simples
         let result;
         if (response.ok) {
-            // Tenta obter a resposta como JSON
             try {
                 result = await response.json();
             } catch (error) {
-                result = await response.text();  // Se não for JSON, tenta como texto
+                result = await response.text();  
             }
             
-            // Se for JSON, mostra a mensagem de sucesso ou erro
             if (result.message) {
                 alert("Mensagem enviada com sucesso!");
             } else {
@@ -41,8 +38,7 @@ document.getElementById("contact-form").addEventListener("submit", async functio
         }
 
     } catch (error) {
-        // Em caso de erro ao conectar com o servidor
         alert("Erro ao conectar com o servidor.");
-        console.error("Erro:", error);
+        console.error("Erro ao enviar mensagem:", error);
     }
 });
