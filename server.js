@@ -3,13 +3,18 @@ const nodemailer = require('nodemailer');
 const cors = require('cors');
 require('dotenv').config();
 
-const app = express(); // Inicializa o Express
+const app = express();
 const port = process.env.PORT || 3000;
 
-// Middleware (agora depois da inicialização de `app`)
+// Middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
+
+// Rota inicial para testar se o servidor está rodando
+app.get('/', (req, res) => {
+    res.send('Servidor rodando! 🚀');
+});
 
 // Configuração do transportador do Nodemailer
 const transporter = nodemailer.createTransport({
