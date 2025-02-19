@@ -7,50 +7,42 @@ document.getElementById("contact-form").addEventListener("submit", async functio
     const phone = document.getElementById("phone").value;
     const message = document.getElementById("message").value;
 
-    // Enviando os dados para o servidor usando Fetch
-    const response = await fetch("http://localhost:5000/send-email", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({ name, email, phone, message })
-    });
+    const data = { name, email, phone, message };
 
-    const result = await response.json();
-    document.getElementById("status").innerText = result.message; // Exibindo mensagem de status
-});
+    try {
+        // Enviando os dados para o servidor usando Fetch
+        const response = await fetch("https://portfolio-df2p.onrender.com/send-email", {  // Troque localhost pela URL do seu servidor no Render
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(data)
+        });
 
+        // Verifica se a resposta é JSON ou texto simples
+        let result;
+        if (response.ok) {
+            // Tenta obter a resposta como JSON
+            try {
+                result = await response.json();
+            } catch (error) {
+                result = await response.text();  // Se não for JSON, tenta como texto
+            }
+            
+            // Se for JSON, mostra a mensagem de sucesso ou erro
+            if (result.message) {
+                alert("Mensagem enviada com sucesso!");
+            } else {
+                alert("Erro ao enviar mensagem: " + result);
+            }
+        } else {
+            const errorMessage = await response.text();
+            alert("Erro ao enviar mensagem: " + errorMessage);
+        }
 
-document.getElementById("contact-form").addEventListener("submit", function(event) {
-    event.preventDefault();  // Previne o comportamento padrão do formulário
-
-    const name = document.getElementById("name").value;
-    const email = document.getElementById("email").value;
-    const phone = document.getElementById("phone").value;
-    const message = document.getElementById("message").value;
-
-    const data = {
-        name: name,
-        email: email,
-        phone: phone,
-        message: message
-    };
-
-    // Enviar os dados para o servidor
-    fetch('http://localhost:3000/send-email', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data),
-    })
-    .then(response => response.text())
-    .then(responseText => {
-        alert('Mensagem enviada com sucesso!');
-        console.log(responseText);
-    })
-    .catch(error => {
-        alert('Erro ao enviar mensagem.');
-        console.error(error);
-    });
+    } catch (error) {
+        // Em caso de erro ao conectar com o servidor
+        alert("Erro ao conectar com o servidor.");
+        console.error("Erro:", error);
+    }
 });
