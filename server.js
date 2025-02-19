@@ -12,8 +12,14 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 
 // Rota inicial para testar se o servidor está rodando
+const path = require('path');
+
+// Servindo arquivos estáticos da pasta "public"
+app.use(express.static(path.join(__dirname, 'public')));
+
+// Rota para carregar a página principal
 app.get('/', (req, res) => {
-    res.sendFile(__dirname + '/public/index.html'); // Substitua 'index.html' pelo nome do seu arquivo HTML
+    res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
 // Configuração do transportador do Nodemailer
