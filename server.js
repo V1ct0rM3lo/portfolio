@@ -13,7 +13,7 @@ app.use(cors());
 
 // Rota inicial para testar se o servidor está rodando
 app.get('/', (req, res) => {
-    res.send('/public/index.html');
+    res.sendFile(__dirname + '/public/index.html'); // Substitua 'index.html' pelo nome do seu arquivo HTML
 });
 
 // Configuração do transportador do Nodemailer
