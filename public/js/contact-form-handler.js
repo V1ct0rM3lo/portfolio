@@ -2,54 +2,48 @@ const express = require('express');
 const nodemailer = require('nodemailer');
 const bodyParser = require('body-parser');
 const cors = require('cors'); // Para permitir requisições de outros domínios
+require('dotenv').config(); // Carregar variáveis de ambiente
 
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 
-// Usar o middleware para lidar com os dados do formulário
+// Middleware
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-app.use(cors()); // Permite requisições de outros domínios
+app.use(cors());
 
-// Configuração do transportador do Nodemailer (aqui usamos Gmail como exemplo)
+// Configuração do transportador do Nodemailer
 const transporter = nodemailer.createTransport({
-    service: 'gmail', // Ou outro serviço de sua preferência
+    service: 'gmail',
     auth: {
-        user: 'victosilvamelo13123@gmail.com',  // Substitua com seu e-mail
-        pass: 'coeb ijvf lrux cnkf'  // Substitua com sua senha de app
+        user: process.env.EMAIL_USER,  // Puxando do Render
+        pass: process.env.EMAIL_PASS   // Puxando do Render
     }
 });
 
-// Rota para processar o envio do formulário
-app.post('/send-email', (req, res) => {
-    const { name, email, phone, message } = req.body;
+// Rota para envio de e-mail
+app.post('/send-email', async (req, res) => {
+    try {
+        const { name, email, phone, message } = req.body;
 
-    // Configuração do e-mail
-    const mailOptions = {
-        from: email,  // E-mail de envio (o que o usuário digitar no formulário)
-        to: 'victorsilvamelo13123@gmail.com',  // E-mail de destino (pode ser o seu ou outro)
-        subject: `Mensagem de ${name} pelo formulário de contato`,
-        text: `
-            Nome: ${name}
-            E-mail: ${email}
-            Telefone: ${phone}
-            Mensagem: ${message}
-        `,
-        html: `
-            <p><strong>Nome:</strong> ${name}</p>
-            <p><strong>E-mail:</strong> ${email}</p>
-            <p><strong>Telefone:</strong> ${phone}</p>
-            <p><strong>Mensagem:</strong><br>${message}</p>
-        `
-    };
+        const mailOptions = {
+            from: email,  
+            to: process.env.EMAIL_USER,  
+            subject: `Mensagem de ${name} pelo formulário`,
+            text: `Nome: ${name}\nE-mail: ${email}\nTelefone: ${phone}\nMensagem: ${message}`,
+            html: `
+                <p><strong>Nome:</strong> ${name}</p>
+                <p><strong>E-mail:</strong> ${email}</p>
+                <p><strong>Telefone:</strong> ${phone}</p>
+                <p><strong>Mensagem:</strong><br>${message}</p>
+            `
+        };
 
-    // Enviar o e-mail
-    transporter.sendMail(mailOptions, (error, info) => {
-        if (error) {
-            return res.status(500).send('Erro ao enviar e-mail: ' + error.message);
-        }
-        res.status(200).send('E-mail enviado com sucesso!');
-    });
+        const info = await transporter.sendMail(mailOptions);
+        res.status(200).send('E-mail enviado: ' + info.response);
+    } catch (error) {
+        res.status(500).send('Erro ao enviar e-mail: ' + error.message);
+    }
 });
 
 // Iniciar o servidor
