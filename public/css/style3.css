@@ -479,7 +479,7 @@ footer .line-footer p a {
     height: 100vh;
     position: fixed;
     top: 0;
-    right: 10%;
+    right: 20%;
     z-index: 99999;
     width: 0%;
     overflow: hidden;
