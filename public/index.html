@@ -1,195 +1,289 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Victor Melo - Services</title>
     <!-- GOOGLE FONTS -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-        rel="stylesheet">
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
     <!-- GOOGLE FONTS -->
     <!-- BOOTSTRAP ICONS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
     <!-- BOOTSTRAP ICONS -->
-    <link rel="stylesheet" href="/css/style3.css">
+    <link rel="stylesheet" href="/css/style3.css" />
 
     <script src="/js/script.js" defer></script>
     <script src="/js/menu.js" defer></script>
     <script src="/js/contact-form-handler.js" defer></script>
+  </head>
 
-</head>
-
-<body>
+  <body>
     <header>
-        <div class="interface">
-            <div class="logo">
-                <a href="#">
-                    <img src="images/logo.png" alt="">
-                </a>
-            </div><!--LOGO-->
+      <div class="interface">
+        <div class="logo">
+          <a href="#">
+            <img src="images/logo.png" alt="" />
+          </a>
+        </div>
+        <!--LOGO-->
 
+        <nav class="menu-desktop">
+          <ul>
+            <li>
+              <a href="#" class="menu-link" data-target="inicio">Início</a>
+            </li>
+            <li>
+              <a href="#" class="menu-link" data-target="especialidades"
+                >Especialidades</a
+              >
+            </li>
+            <li><a href="#" class="menu-link" data-target="sobre">Sobre</a></li>
+            <li>
+              <a href="#" class="menu-link" data-target="projetos">Projetos</a>
+            </li>
+          </ul>
+        </nav>
 
-            <nav class="menu-desktop">
-                <ul>
-                    <li><a href="#" class="menu-link" data-target="inicio">Início</a></li>
-                    <li><a href="#" class="menu-link" data-target="especialidades">Especialidades</a></li>
-                    <li><a href="#" class="menu-link" data-target="sobre">Sobre</a></li>
-                    <li><a href="#" class="menu-link" data-target="projetos">Projetos</a></li>
-                </ul>
-            </nav>
+        <div class="btn-contato">
+          <a href="">
+            <button class="menu-link" data-target="contato">Contato</button>
+          </a>
+        </div>
+        <!--BTN - CONTATO-->
 
-            <div class="btn-contato">
-                <a href="">
-                    <button class="menu-link" data-target="contato">Contato</button>
-                </a>
-            </div><!--BTN - CONTATO-->
+        <div class="btn-abrir-menu" id="btn-menu">
+          <i class="bi bi-list"></i>
+        </div>
 
-            <div class="btn-abrir-menu" id="btn-menu">
-                <i class="bi bi-list"></i>
-            </div>
+        <div class="menu-mobile" id="menu-mobile">
+          <div class="btn-fechar">
+            <i class="bi bi-x-lg"></i>
+          </div>
 
-
-            <div class="menu-mobile" id="menu-mobile">
-                <div class="btn-fechar">
-                    <i class="bi bi-x-lg"></i>
-                </div>
-
-                <nav>
-                    <ul>
-                        <li><a href="#" class="menu-link" data-target="inicio">Início</a></li>
-                        <li><a href="#" class="menu-link" data-target="especialidades">Especialidades</a></li>
-                        <li><a href="#" class="menu-link" data-target="sobre">Sobre</a></li>
-                        <li><a href="#" class="menu-link" data-target="projetos">Projetos</a></li>
-                        <li><a href="#" class="menu-link" data-target="contato">Contato</a></li>
-                    </ul>
-                </nav>
-
-
-            </div><!--MENU MOBILE-->
-            <div class="overlay-menu" id="overlay-menu"></div>
-
-        </div><!--INTERFACE-->
+          <nav>
+            <ul>
+              <li>
+                <a href="#" class="menu-link" data-target="inicio">Início</a>
+              </li>
+              <li>
+                <a href="#" class="menu-link" data-target="especialidades"
+                  >Especialidades</a
+                >
+              </li>
+              <li>
+                <a href="#" class="menu-link" data-target="sobre">Sobre</a>
+              </li>
+              <li>
+                <a href="#" class="menu-link" data-target="projetos"
+                  >Projetos</a
+                >
+              </li>
+              <li>
+                <a href="#" class="menu-link" data-target="contato">Contato</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+        <!--MENU MOBILE-->
+        <div class="overlay-menu" id="overlay-menu"></div>
+      </div>
+      <!--INTERFACE-->
     </header>
 
     <main>
-        <section class="topo-do-site" id="inicio">
-            <div class="interface">
-                <div class="flex">
-                    <div class="txt-topo-site">
-                        <h1>TRANSFORMANDO IDEIAS EM REALIDADE DIGITAL <span>.</span></h1>
-                        <p>Eu sou Victor Melo, um desenvolvedor apaixonado por criar soluções inovadoras e impactantes no mundo digital. Acredito que a tecnologia tem o poder de transformar negócios e facilitar a vida das pessoas. Se você busca um profissional comprometido e com vasta experiência no desenvolvimento de sistemas, você está no lugar certo.</p>
+      <section class="topo-do-site" id="inicio">
+        <div class="interface">
+          <div class="flex">
+            <div class="txt-topo-site">
+              <h1>TRANSFORMANDO IDEIAS EM REALIDADE DIGITAL <span>.</span></h1>
+              <p>
+                Eu sou Victor Melo, um desenvolvedor apaixonado por criar
+                soluções inovadoras e impactantes no mundo digital. Acredito que
+                a tecnologia tem o poder de transformar negócios e facilitar a
+                vida das pessoas. Se você busca um profissional comprometido e
+                com vasta experiência no desenvolvimento de sistemas, você está
+                no lugar certo.
+              </p>
 
-                        <div class="btn-contato">
-                            <a href="#contato">
-                                <button class="menu-link" data-target="contato">Entre em contato</button>
-                            </a>
-                        </div>
-                    </div><!-- txt-topo-site -->
+              <div class="btn-contato">
+                <a href="#contato">
+                  <button class="menu-link" data-target="contato">
+                    Entre em contato
+                  </button>
+                </a>
+              </div>
+            </div>
+            <!-- txt-topo-site -->
 
-                    <div class="img-topo-site">
-                        <img src="images/pessoa1.png" alt="Victor Melo">
-                    </div><!-- img-topo-site -->
-                </div><!-- FLEX-->
-            </div><!-- interface -->
-        </section><!-- TOPO-DO-SITE -->
+            <div class="img-topo-site">
+              <img src="images/pessoa1.png" alt="Victor Melo" />
+            </div>
+            <!-- img-topo-site -->
+          </div>
+          <!-- FLEX-->
+        </div>
+        <!-- interface -->
+      </section>
+      <!-- TOPO-DO-SITE -->
 
-        <section class="especialidades" id="especialidades">
-            <div class="interface">
-                <h2 class="titulo">MINHAS <span>ESPECIALIDADES.</span></h2>
-                <div class="flex">
-                    <div class="especialidades-box">
-                        <i class="bi bi-code-square"></i>
-                        <h3>Desenvolvimento de Websites</h3>
-                        <p>Criação de websites responsivos, modernos e intuitivos, otimizados para oferecer a melhor experiência ao usuário e destacar sua marca no mundo digital.</p>
-                    </div><!-- especialidades-box -->
+      <section class="especialidades" id="especialidades">
+        <div class="interface">
+          <h2 class="titulo">MINHAS <span>ESPECIALIDADES.</span></h2>
+          <div class="flex">
+            <div class="especialidades-box">
+              <i class="bi bi-code-square"></i>
+              <h3>Desenvolvimento de Websites</h3>
+              <p>
+                Criação de websites responsivos, modernos e intuitivos,
+                otimizados para oferecer a melhor experiência ao usuário e
+                destacar sua marca no mundo digital.
+              </p>
+            </div>
+            <!-- especialidades-box -->
 
-                    <div class="especialidades-box">
-                        <i class="bi bi-cart"></i>
-                        <h3>Loja Online</h3>
-                        <p>Desenvolvimento de e-commerce completo, com sistemas de pagamento integrados e soluções para gestão de produtos, carrinho e pedidos, com foco em resultados e conversão.</p>
-                    </div><!-- especialidades-box -->
+            <div class="especialidades-box">
+              <i class="bi bi-cart"></i>
+              <h3>Loja Online</h3>
+              <p>
+                Desenvolvimento de e-commerce completo, com sistemas de
+                pagamento integrados e soluções para gestão de produtos,
+                carrinho e pedidos, com foco em resultados e conversão.
+              </p>
+            </div>
+            <!-- especialidades-box -->
 
-                    <div class="especialidades-box">
-                        <i class="bi bi-code-square"></i>
-                        <h3>Blogs e Portais</h3>
-                        <p>Construção de blogs e portais dinâmicos, que permitem fácil gerenciamento de conteúdo e oferecem uma plataforma para criar, compartilhar e engajar com o público-alvo.</p>
-                    </div><!-- especialidades-box -->
-                </div><!-- FLEX -->
-            </div><!-- INTERFACE -->
-        </section><!-- ESPECIALIDADES -->
+            <div class="especialidades-box">
+              <i class="bi bi-code-square"></i>
+              <h3>Blogs e Portais</h3>
+              <p>
+                Construção de blogs e portais dinâmicos, que permitem fácil
+                gerenciamento de conteúdo e oferecem uma plataforma para criar,
+                compartilhar e engajar com o público-alvo.
+              </p>
+            </div>
+            <!-- especialidades-box -->
+          </div>
+          <!-- FLEX -->
+        </div>
+        <!-- INTERFACE -->
+      </section>
+      <!-- ESPECIALIDADES -->
 
-        <section class="sobre" id="sobre">
-            <div class="interface">
-                <div class="flex">
+      <section class="sobre" id="sobre">
+        <div class="interface">
+          <div class="flex">
+            <div class="txt-sobre">
+              <h2>MUITO PRAZER, <span>SOU VICTOR MELO.</span></h2>
+              <p>
+                Sou um desenvolvedor apaixonado por tecnologia, sempre em busca
+                de novos desafios e aprendizados. Tenho experiência com
+                desenvolvimento web, trabalhando com tecnologias como React,
+                SQL, PHP e Docker.
+              </p>
+              <p>
+                Além disso, já atuei em projetos envolvendo inteligência
+                artificial, estatística e machine learning. Meu objetivo é criar
+                soluções inovadoras e impactantes, seja no desenvolvimento de
+                sistemas, automação ou análise de dados.
+              </p>
 
+              <div class="btn-social">
+                <a href="https://www.instagram.com/v.hugoom"
+                  ><button><i class="bi bi-instagram"></i></button
+                ></a>
+                <a
+                  href="https://www.youtube.com/channel/UCNaP5h-crJZFypeDRW0BAdA"
+                  ><button><i class="bi bi-youtube"></i></button
+                ></a>
+                <a href="https://www.tiktok.com/@h4sh1r4m4_office"
+                  ><button><i class="bi bi-tiktok"></i></button
+                ></a>
+              </div>
+              <!-- btn-social -->
+            </div>
+            <!-- txt-sobre -->
+          </div>
+          <!-- FLEX -->
+        </div>
+        <!-- INTERFACE -->
+      </section>
+      <!-- SOBRE -->
 
-                    <div class="txt-sobre">
-                        <h2>MUITO PRAZER, <span>SOU VICTOR MELO.</span></h2>
-                        <p>Sou um desenvolvedor apaixonado por tecnologia, sempre em busca de novos desafios e aprendizados. Tenho experiência com desenvolvimento web, trabalhando com tecnologias como React, SQL, PHP e Docker.</p>
-                        <p>Além disso, já atuei em projetos envolvendo inteligência artificial, estatística e machine learning. Meu objetivo é criar soluções inovadoras e impactantes, seja no desenvolvimento de sistemas, automação ou análise de dados.</p>
-                        
-                        <div class="btn-social">
-                            <a href="https://www.instagram.com/v.hugoom"><button><i
-                                        class="bi bi-instagram"></i></button></a>
-                            <a href="https://www.youtube.com/channel/UCNaP5h-crJZFypeDRW0BAdA"><button><i
-                                        class="bi bi-youtube"></i></button></a>
-                            <a href="https://www.tiktok.com/@h4sh1r4m4_office"><button><i
-                                        class="bi bi-tiktok"></i></button></a>
-                        </div><!-- btn-social -->
-                    </div><!-- txt-sobre -->
-                </div><!-- FLEX -->
-            </div><!-- INTERFACE -->
-        </section><!-- SOBRE -->
-
-        <section class="portfolio" id="projetos">
-            <div class="interface">
-                <h2 class="titulo">MEU <span>PORTFÓLIO.</span></h2>
-                <div class="flex">
-                    <div class="img-port" style="background-image: url(images/imagem1.jpg);">
-                        <div class="overlay">Power Games</div>
-                    </div>
-                    <div class="img-port" style="background-image: url(images/imagem2.jpg);">
-                        <div class="overlay">Gerenciador de Reservas</div>
-                    </div>
-                    <div class="img-port" style="background-image: url(images/imagem3.jpg);">
-                        <div class="overlay">Projeto 3</div>
-                    </div>
-                </div><!-- FLEX -->
-            </div><!-- INTERFACE -->
-        </section><!-- PORTFOLIO -->
+      <section class="portfolio" id="projetos">
+        <div class="interface">
+          <h2 class="titulo">MEU <span>PORTFÓLIO.</span></h2>
+          <div class="flex">
+            <div
+              class="img-port"
+              style="background-image: url(images/imagem1.jpg)"
+            >
+              <div class="overlay">Power Games</div>
+            </div>
+            <div
+              class="img-port"
+              style="background-image: url(images/imagem2.jpg)"
+            >
+              <a href="https://sistema-reservas-reunioes-teste.onrender.com/">
+                <div class="overlay">Gerenciador de Reuniões</div>
+              </a>
+            </div>
+            <div
+              class="img-port"
+              style="background-image: url(images/imagem3.jpg)"
+            >
+              <div class="overlay">Projeto 3</div>
+            </div>
+          </div>
+          <!-- FLEX -->
+        </div>
+        <!-- INTERFACE -->
+      </section>
+      <!-- PORTFOLIO -->
     </main>
 
     <footer>
-        <div class="interface" id="contato">
-            <div class="line-footer">
-                <div class="flex">
-                    <div class="logo-footer">
-                        <img src="/images/logo.png" alt="Victor Melo">
-                    </div>
+      <div class="interface" id="contato">
+        <div class="line-footer">
+          <div class="flex">
+            <div class="logo-footer">
+              <img src="/images/logo.png" alt="Victor Melo" />
+            </div>
 
-
-                    <div class="btn-social">
-                        <a href="https://www.instagram.com/v.hugoom"><button><i
-                                    class="bi bi-instagram"></i></button></a>
-                        <a href="https://www.youtube.com/channel/UCNaP5h-crJZFypeDRW0BAdA"><button><i
-                                    class="bi bi-youtube"></i></button></a>
-                        <a href="https://www.tiktok.com/@h4sh1r4m4_office"><button><i
-                                    class="bi bi-tiktok"></i></button></a>
-                    </div><!-- btn-social -->
-                </div><!-- flex -->
-            </div><!-- line-footer -->
-            <div class="line-footer borda">
-                <p><i class="bi bi-envelope-fill"></i> <a
-                        href="mailto:victorsilvamelo13123@gmail.com">victorsilvamelo13123@gmail.com</a></p>
-            </div><!-- line-footer -->
-        </div><!-- INTERFACE -->
+            <div class="btn-social">
+              <a href="https://www.instagram.com/v.hugoom"
+                ><button><i class="bi bi-instagram"></i></button
+              ></a>
+              <a href="https://www.youtube.com/channel/UCNaP5h-crJZFypeDRW0BAdA"
+                ><button><i class="bi bi-youtube"></i></button
+              ></a>
+              <a href="https://www.tiktok.com/@h4sh1r4m4_office"
+                ><button><i class="bi bi-tiktok"></i></button
+              ></a>
+            </div>
+            <!-- btn-social -->
+          </div>
+          <!-- flex -->
+        </div>
+        <!-- line-footer -->
+        <div class="line-footer borda">
+          <p>
+            <i class="bi bi-envelope-fill"></i>
+            <a href="mailto:victorsilvamelo13123@gmail.com"
+              >victorsilvamelo13123@gmail.com</a
+            >
+          </p>
+        </div>
+        <!-- line-footer -->
+      </div>
+      <!-- INTERFACE -->
     </footer>
-
-</body>
-
+  </body>
 </html>
-
