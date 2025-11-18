@@ -315,18 +315,21 @@ section.sobre .flex {
 /* ESTILO PORTFOLIO */
 
 section.portfolio {
-    padding: 80px 4%;
+    padding: 1px 4%;
     box-shadow: 0 0 40px 10px #ffffff46;
 }
 
 section.portfolio .flex {
-    justify-content: space-around;
-    margin-top: 60px;
+    display: flex;
+    justify-content: center; /* centraliza o grupo */
+    gap: 40px; /* distância entre as imagens */
+    margin-top: 20px;
 }
 
+
 .img-port {
-    width: 360px;
-    height: 460px;
+    width: 900px;
+    height: 560px;
     background-size: cover;
     background-position: 100% 0%;
     transition: 8s;
